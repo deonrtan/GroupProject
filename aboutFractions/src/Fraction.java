@@ -4,6 +4,19 @@ public class Fraction {
   private int numerator;
   private int denominator;
 
+  public Fraction(){
+    numerator = 0;
+    denominator = 0;
+  }
+  public Fraction(int wholeNumVal){
+
+  }
+  //Constructor for the Fraction class
+  public Fraction(int numerator, int denominator) {
+    this.numerator = numerator;
+    this.denominator = denominator;
+  }
+
   public int getNumerator() {
     return numerator;
     //returns the numerator
@@ -24,16 +37,10 @@ public class Fraction {
     //sets the denominator
   }
 
-  //Constructor for the Fraction class
-  public Fraction(int numerator, int denominator) {
-    this.numerator = numerator;
-    this.numerator = denominator;
-  }
 
   //method to add two fractions
   Fraction add(Fraction second) {
-    int numerator =
-      this.numerator * second.denominator + second.numerator * this.denominator;
+    int numerator = this.numerator * second.denominator + second.numerator * this.denominator;
     int denominator = this.denominator * second.denominator;
     return new Fraction(numerator, denominator);
   }
@@ -45,6 +52,6 @@ public class Fraction {
   public void division() {}
 
   public String toString() {
-    return "Result is equal to " + this.numerator + "/" + this.denominator;
+    return this.numerator + "/" + this.denominator;
   }
 }
