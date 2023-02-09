@@ -57,7 +57,7 @@ public class FractionArithmetic {
                         "\t\t\t\t\tEnjoy the rest of your day."
         );
       } //end switch
-    } while (choices != 3);
+    } while (choices != 8);
   } //end of main mehod
 
   /**
