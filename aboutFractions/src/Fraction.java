@@ -4,13 +4,13 @@ public class Fraction {
   private int numerator;
   private int denominator;
 
-  public Fraction(){
+  public Fraction() {
     numerator = 0;
     denominator = 0;
   }
-  public Fraction(int wholeNumVal){
 
-  }
+  public Fraction(int wholeNumVal) {}
+
   //Constructor for the Fraction class
   public Fraction(int numerator, int denominator) {
     this.numerator = numerator;
@@ -37,10 +37,10 @@ public class Fraction {
     //sets the denominator
   }
 
-
   //method to add two fractions
   Fraction add(Fraction second) {
-    int numerator = this.numerator * second.denominator + second.numerator * this.denominator;
+    int numerator =
+      this.numerator * second.denominator + second.numerator * this.denominator;
     int denominator = this.denominator * second.denominator;
     return new Fraction(numerator, denominator);
   }
