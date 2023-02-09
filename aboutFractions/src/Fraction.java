@@ -11,6 +11,7 @@ public class Fraction {
   }
 
   public Fraction(int wholeNumVal) {
+    //gets the whole number value
     wholeNumVal = this.numerator / this.denominator;
   }
 
@@ -44,6 +45,8 @@ public class Fraction {
 
   //method to add two fractions
   Fraction add(Fraction second) {
+    //Check if there's an error in the method
+
     if (this.denominator == second.denominator) {
       int numerator = this.numerator + second.numerator;
       int denominator = this.denominator;
@@ -61,7 +64,8 @@ public class Fraction {
 
   //method to subtract two fractions
   Fraction subtract(Fraction second) {
-    //Check if something's missing
+    //Check if there's an error in the method
+
     if (this.denominator == second.denominator) {
       int numerator = this.numerator - second.numerator;
       int denominator = this.denominator;
@@ -75,14 +79,17 @@ public class Fraction {
       int denominator = this.denominator * second.denominator;
       return new Fraction(numerator, denominator);
     }
-    //no simplification yet
   }
 
   //method to Multiply two fractions
-  public void multiplication() {}
+  public void multiplication() {
+    //Check if there's an error in the method
+  }
 
   //method to Divide two fractions
   Fraction division(Fraction second) {
+    //Check if there's an error in the method
+
     //checks if the first denominator matches with the second denominator then outputs the same denominator
     if (this.denominator == second.denominator) {
       int numerator = this.numerator * second.denominator;
@@ -96,6 +103,13 @@ public class Fraction {
   }
 
   public String toString() {
+    // Returns a string value
     return this.numerator + "/" + this.denominator;
+  }
+
+  public double toDouble() {
+    //still need to fix these part
+    double wholeNumValue = this.numerator / this.denominator;
+    return wholeNumValue;
   }
 }
