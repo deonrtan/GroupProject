@@ -9,7 +9,9 @@ public class Fraction {
     denominator = 0;
   }
 
-  public Fraction(int wholeNumVal) {}
+  public Fraction(int wholeNumVal) {
+    wholeNumVal = this.numerator / this.denominator;
+  }
 
   //Constructor for the Fraction class
   public Fraction(int numerator, int denominator) {
@@ -45,7 +47,17 @@ public class Fraction {
     return new Fraction(numerator, denominator);
   }
 
-  public void subtraction() {}
+  Fraction substract(Fraction second) {
+    //Check if something's missing
+    int numerator =
+      this.numerator * second.denominator - second.numerator * this.denominator;
+    if (this.denominator == second.denominator) {
+      return new Fraction(numerator, denominator);
+    }
+    int denominator = this.denominator * second.denominator;
+    return new Fraction(numerator, denominator);
+    //no simplification yet
+  }
 
   public void multiplication() {}
 
