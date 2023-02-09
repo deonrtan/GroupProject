@@ -18,17 +18,30 @@ public class FractionArithmetic {
       choices = enterChoice(1, 8);
       switch (choices) {
         case 1 -> {
-          fractionOne = valueOfFractionOne();
+          System.out.printf("%101s", "Please Enter a numerator for Fraction 1: ");
+          numerator = Integer.parseInt(kbd.nextLine());
+          System.out.printf("%103s", "Please Enter a denominator for Fraction 1: ");
+          denominator = Integer.parseInt(kbd.nextLine());
+          fractionOne.setNumerator(numerator);
+          fractionOne.setDenominator(denominator);
           System.out.printf("%96s", "Press enter to continue...");
           kbd.nextLine();
         }
         case 2 -> {
-          fractionTwo  = valueOfFractionTwo();
+          System.out.printf("%101s", "Please Enter a numerator for Fraction 2: ");
+          numerator = Integer.parseInt(kbd.nextLine());
+          System.out.printf("%103s", "Please Enter a denominator for Fraction 2: ");
+          denominator = Integer.parseInt(kbd.nextLine());
+          fractionTwo.setNumerator(numerator);
+          fractionTwo.setDenominator(denominator);
           System.out.printf("%96s", "Press enter to continue...");
           kbd.nextLine();
         }
         case 3 -> {
-          addFraction(fractionOne, fractionTwo);
+          Fraction result = fractionOne.add(fractionTwo);
+          System.out.printf("%85s%s", "Fraction 1: ", fractionOne.toString());
+          System.out.printf("\n%85s%s", "Fraction 2: ", fractionTwo.toString());
+          System.out.printf("\n%96s","The result is " + result.toString());
           System.out.printf("\n%96s","Press enter to continue...");
           kbd.nextLine();
         }
@@ -57,7 +70,7 @@ public class FractionArithmetic {
                         "\t\t\t\t\tEnjoy the rest of your day."
         );
       } //end switch
-    } while (choices != 3);
+    } while (choices != 8);
   } //end of main mehod
 
   /**
@@ -99,57 +112,4 @@ public class FractionArithmetic {
     } while (choice < min || choice > max);
     return (choice);
   } //end of enterChoice method
-
-  public static Fraction valueOfFractionOne() {
-    int numOne, denOne;
-    System.out.printf("%101s", "Please Enter a numerator for Fraction 1: ");
-    numOne = Integer.parseInt(kbd.nextLine());
-    System.out.printf("%103s", "Please Enter a denominator for Fraction 1: ");
-    denOne = Integer.parseInt(kbd.nextLine());
-    return new Fraction(numOne,denOne);
-  }
-  /**
-   * read an input for the value of fraction 2
-   */
-  public static Fraction valueOfFractionTwo() {
-    int numTwo, denTwo;
-    System.out.printf("%101s", "Please Enter a numerator for Fraction 2: ");
-    numTwo = Integer.parseInt(kbd.nextLine());
-    System.out.printf("%103s", "Please Enter a denominator for Fraction 2: ");
-    denTwo = Integer.parseInt(kbd.nextLine());
-    return new Fraction(numTwo,denTwo);
-  }
-  /**
-   * adds two fraction
-   */
-  public static void addFraction(Fraction fractionOne, Fraction fractionTwo){
-    Fraction result = fractionOne.add(fractionTwo);
-    System.out.printf("%85s%s", "Fraction 1: ", fractionOne.toString());
-    System.out.printf("\n%85s%s", "Fraction 2: ", fractionTwo.toString());
-    System.out.printf("\n%96s","The result is " + result.toString());
-  }
-  /**
-   * substract two fraction
-   */
-  public static void substractFraction(){
-    System.out.println(" SUBSTRACT FRACTION ");
-  }
-  /**
-   * multiply two fraction
-   */
-  public static void multiplyFractions(){
-    System.out.println(" MULTIPLY FRACTION ");
-  }
-  /**
-   * divides two fraction
-   */
-  public static void divideFractions(){
-    System.out.println(" DIVIDE FRACTION ");
-  }
-  /**
-   * finds the gcd and reduces the fractions into the simplest form
-   */
-  public static void reduceFraction(){
-    System.out.println(" REDUCE FRACTION ");
-  }
 }
