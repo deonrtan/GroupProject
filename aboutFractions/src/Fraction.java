@@ -4,6 +4,7 @@ public class Fraction {
   private int numerator;
   private int denominator;
 
+  //method for the default values of Fraction
   public Fraction() {
     numerator = 0;
     denominator = 0;
@@ -39,6 +40,8 @@ public class Fraction {
     //sets the denominator
   }
 
+  //------------------Basic Operations------------------\\
+
   //method to add two fractions
   Fraction add(Fraction second) {
     int numerator =
@@ -47,6 +50,7 @@ public class Fraction {
     return new Fraction(numerator, denominator);
   }
 
+  //method to subtract two fractions
   Fraction substract(Fraction second) {
     //Check if something's missing
     int numerator =
@@ -59,9 +63,20 @@ public class Fraction {
     //no simplification yet
   }
 
+  //method to Multiply two fractions
   public void multiplication() {}
 
-  public void division() {}
+  //method to Divide two fractions
+  Fraction division(Fraction second) {
+    //performs first the calculation for getting the numerator value
+    int numerator = this.numerator * second.denominator;
+    //checks if the first denominator matches with the second denominator then outputs the same denominator
+    if (this.denominator == second.denominator) {
+      return new Fraction(numerator, denominator);
+    }
+    int denominator = second.numerator * this.denominator;
+    return new Fraction(numerator, denominator);
+  }
 
   public String toString() {
     return this.numerator + "/" + this.denominator;
