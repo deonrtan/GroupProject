@@ -57,6 +57,10 @@ public class FractionArithmetic {
           kbd.nextLine();
         }
         case 4 -> {
+          Fraction result = fractionOne.subtract(fractionTwo);
+          System.out.printf("%85s%s", "Fraction 1: ", fractionOne.toString());
+          System.out.printf("\n%85s%s", "Fraction 2: ", fractionTwo.toString());
+          System.out.printf("\n%96s", "The result is " + result.toString());
           System.out.printf("%96s", "Press enter to continue...");
           kbd.nextLine();
         }
@@ -65,6 +69,10 @@ public class FractionArithmetic {
           kbd.nextLine();
         }
         case 6 -> {
+          Fraction result = fractionOne.division(fractionTwo);
+          System.out.printf("%85s%s", "Fraction 1: ", fractionOne.toString());
+          System.out.printf("\n%85s%s", "Fraction 2: ", fractionTwo.toString());
+          System.out.printf("\n%96s", "The result is " + result.toString());
           System.out.printf("%96s", "Press enter to continue...");
           kbd.nextLine();
         }

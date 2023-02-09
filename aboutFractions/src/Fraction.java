@@ -44,22 +44,37 @@ public class Fraction {
 
   //method to add two fractions
   Fraction add(Fraction second) {
-    int numerator =
-      this.numerator * second.denominator + second.numerator * this.denominator;
-    int denominator = this.denominator * second.denominator;
-    return new Fraction(numerator, denominator);
+    if (this.denominator == second.denominator) {
+      int numerator = this.numerator + second.numerator;
+      int denominator = this.denominator;
+      return new Fraction(numerator, denominator);
+    } else {
+      int numerator =
+        this.numerator *
+        second.denominator +
+        second.numerator *
+        this.denominator;
+      int denominator = this.denominator * second.denominator;
+      return new Fraction(numerator, denominator);
+    }
   }
 
   //method to subtract two fractions
-  Fraction substract(Fraction second) {
+  Fraction subtract(Fraction second) {
     //Check if something's missing
-    int numerator =
-      this.numerator * second.denominator - second.numerator * this.denominator;
     if (this.denominator == second.denominator) {
+      int numerator = this.numerator - second.numerator;
+      int denominator = this.denominator;
+      return new Fraction(numerator, denominator);
+    } else {
+      int numerator =
+        this.numerator *
+        second.denominator -
+        second.numerator *
+        this.denominator;
+      int denominator = this.denominator * second.denominator;
       return new Fraction(numerator, denominator);
     }
-    int denominator = this.denominator * second.denominator;
-    return new Fraction(numerator, denominator);
     //no simplification yet
   }
 
@@ -68,14 +83,16 @@ public class Fraction {
 
   //method to Divide two fractions
   Fraction division(Fraction second) {
-    //performs first the calculation for getting the numerator value
-    int numerator = this.numerator * second.denominator;
     //checks if the first denominator matches with the second denominator then outputs the same denominator
     if (this.denominator == second.denominator) {
+      int numerator = this.numerator * second.denominator;
+
+      return new Fraction(numerator, denominator);
+    } else {
+      int numerator = this.numerator * second.denominator;
+      int denominator = second.numerator * this.denominator;
       return new Fraction(numerator, denominator);
     }
-    int denominator = second.numerator * this.denominator;
-    return new Fraction(numerator, denominator);
   }
 
   public String toString() {
