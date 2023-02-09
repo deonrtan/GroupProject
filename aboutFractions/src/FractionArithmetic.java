@@ -88,11 +88,13 @@ public class FractionArithmetic {
           kbd.nextLine();
         }
         //------------QUIT------------\\
-        case 8 -> System.out.print(
-          "\t\t\t\tThank you for using our program.\n" +
-          "\t\t\t\t\tEnjoy the rest of your day."
-        );
-        System.exit(0);
+        case 8 -> {
+          System.out.print(
+            "\t\t\t\tThank you for using our program.\n" +
+            "\t\t\t\t\tEnjoy the rest of your day."
+          );
+          System.exit(0);
+        }
       } //end switch
     } while (choices != 8);
   } //end of main mehod
