@@ -16,6 +16,7 @@ public class FractionArithmetic {
       showMainMenu();
       choices = enterChoice(1, 8);
       switch (choices) {
+        //------------Enter the value of Fraction 1------------\\
         case 1 -> {
           System.out.printf(
             "%101s",
@@ -32,6 +33,7 @@ public class FractionArithmetic {
           System.out.printf("%96s", "Press enter to continue...");
           kbd.nextLine();
         }
+        //------------Enter the value of Fraction 2------------\\
         case 2 -> {
           System.out.printf(
             "%101s",
@@ -48,6 +50,7 @@ public class FractionArithmetic {
           System.out.printf("%96s", "Press enter to continue...");
           kbd.nextLine();
         }
+        //------------Add Fractions------------\\
         case 3 -> {
           Fraction result = fractionOne.add(fractionTwo);
           System.out.printf("%85s%s", "Fraction 1: ", fractionOne.toString());
@@ -56,6 +59,7 @@ public class FractionArithmetic {
           System.out.printf("\n%96s", "Press enter to continue...");
           kbd.nextLine();
         }
+        //------------Subtract Fractions------------\\
         case 4 -> {
           Fraction result = fractionOne.subtract(fractionTwo);
           System.out.printf("%85s%s", "Fraction 1: ", fractionOne.toString());
@@ -64,10 +68,12 @@ public class FractionArithmetic {
           System.out.printf("%96s", "Press enter to continue...");
           kbd.nextLine();
         }
+        //------------Multiply Fractions------------\\
         case 5 -> {
           System.out.printf("%96s", "Press enter to continue...");
           kbd.nextLine();
         }
+        //------------Divide Fractions------------\\
         case 6 -> {
           Fraction result = fractionOne.division(fractionTwo);
           System.out.printf("%85s%s", "Fraction 1: ", fractionOne.toString());
@@ -76,14 +82,17 @@ public class FractionArithmetic {
           System.out.printf("%96s", "Press enter to continue...");
           kbd.nextLine();
         }
+        //------------Reduce a Fraction------------\\
         case 7 -> {
           System.out.printf("%96s", "Press enter to continue...");
           kbd.nextLine();
         }
+        //------------QUIT------------\\
         case 8 -> System.out.print(
           "\t\t\t\tThank you for using our program.\n" +
           "\t\t\t\t\tEnjoy the rest of your day."
         );
+        System.exit(0);
       } //end switch
     } while (choices != 8);
   } //end of main mehod
