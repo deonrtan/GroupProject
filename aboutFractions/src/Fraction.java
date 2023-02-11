@@ -43,7 +43,10 @@ public class Fraction {
 
   //------------------Basic Operations------------------\\
 
-  //method to add two fractions
+  /**
+   * Adds the first fraction with the second fraction
+   * @param second the two functions will be added
+   */
   Fraction add(Fraction second) {
     //Check if there's an error in the method
 
@@ -62,7 +65,10 @@ public class Fraction {
     }
   }
 
-  //method to subtract two fractions
+  /**
+   * subtracts the first fraction with the second fraction
+   * @param second the two functions will be added
+   */
   Fraction subtract(Fraction second) {
     //Check if there's an error in the method
 
@@ -81,8 +87,12 @@ public class Fraction {
     }
   }
 
-  //method to Multiply two fractions
+  /**
+   * multiply the first fraction with the second fraction
+   * @param second the two functions will be multiplied
+   */
   Fraction multiplication(Fraction second) {
+    //Check if there's an error in the method
     if (this.denominator == second.denominator) {
       int numerator = this.numerator - second.numerator;
       int denominator = this.denominator;
@@ -94,12 +104,11 @@ public class Fraction {
     }
   }
 
-  //Check if there's an error in the method
-
-  //method to Divide two fractions
+  /**
+   * divides the first fraction with the second fraction
+   * @param second the two functions will be divided
+   */
   Fraction division(Fraction second) {
-    //Check if there's an error in the method
-
     //checks if the first denominator matches with the second denominator then outputs the same denominator
     if (this.denominator == second.denominator) {
       int numerator = this.numerator * second.denominator;
