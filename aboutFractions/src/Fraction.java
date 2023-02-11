@@ -121,10 +121,17 @@ public class Fraction {
     }
   }
 
+
   public String toString() {
     // Returns a string value
     return this.numerator + "/" + this.denominator;
   }
+  
+      public int gcd(int numerator, int denominator) {
+        if (numerator == 0)
+            return denominator;
+        return gcd(denominator % numerator, numerator);
+    }
 
   public double toDouble() {
     //still need to fix these part
