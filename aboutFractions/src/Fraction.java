@@ -82,9 +82,19 @@ public class Fraction {
   }
 
   //method to Multiply two fractions
-  public void multiplication() {
-    //Check if there's an error in the method
+  Fraction multiplication(Fraction second) {
+    if (this.denominator == second.denominator) {
+      int numerator = this.numerator - second.numerator;
+      int denominator = this.denominator;
+      return new Fraction(numerator, denominator);
+    } else {
+      int numerator = this.numerator * second.numerator;
+      int denominator = this.denominator * second.denominator;
+      return new Fraction(numerator, denominator);
+    }
   }
+
+  //Check if there's an error in the method
 
   //method to Divide two fractions
   Fraction division(Fraction second) {

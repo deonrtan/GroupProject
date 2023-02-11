@@ -70,6 +70,10 @@ public class FractionArithmetic {
         }
         //------------Multiply Fractions------------\\
         case 5 -> {
+          Fraction result = fractionOne.multiplication(fractionTwo);
+          System.out.printf("%85s%s", "Fraction 1: ", fractionOne.toString());
+          System.out.printf("\n%85s%s", "Fraction 2: ", fractionTwo.toString());
+          System.out.printf("\n%96s", "The result is " + result.toString());
           System.out.printf("%96s", "Press enter to continue...");
           kbd.nextLine();
         }
