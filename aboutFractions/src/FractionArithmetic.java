@@ -183,4 +183,16 @@ public class FractionArithmetic {
     } while (choice < min || choice > max);
     return (choice);
   } //end of enterChoice method
+    public static void reduceFraction(Fraction fractionOne, Fraction fractionTwo){
+        int gcdOne = fractionOne.gcd(fractionOne.getNumerator(), fractionOne.getDenominator());
+        int gcdTwo = fractionTwo.gcd(fractionTwo.getNumerator(), fractionTwo.getDenominator());
+        int reduceOneNum = fractionOne.getNumerator() / gcdOne;
+        int reduceOneDen = fractionOne.getDenominator() / gcdOne;
+        int reduceTwoNum = fractionTwo.getNumerator() / gcdTwo;
+        int reduceTwoDen = fractionTwo.getDenominator() / gcdTwo;
+        System.out.println("Fraction 1 simplified form: " + reduceOneNum + " / " + reduceOneDen + " or " +
+                (double) reduceOneNum / reduceOneDen);
+        System.out.println("Fraction 2 simplified form: " + reduceTwoNum + " / " + reduceTwoDen + " or " +
+                (double) reduceTwoNum / reduceTwoDen);
+    }
 }
