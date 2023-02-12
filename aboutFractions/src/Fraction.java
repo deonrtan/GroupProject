@@ -98,6 +98,7 @@ public class Fraction {
       int numerator = this.numerator * second.numerator;
       int denominator = this.denominator * second.denominator;
       return new Fraction(numerator, denominator);
+      //need GCD
     }
   }
 
@@ -107,15 +108,10 @@ public class Fraction {
    */
   Fraction division(Fraction second) {
     //checks if the first denominator matches with the second denominator then outputs the same denominator
-    if (this.denominator == second.denominator) {
-      int numerator = this.numerator * second.denominator;
-      int denominator = this.denominator;
-      return new Fraction(numerator, denominator);
-    } else {
-      int numerator = this.numerator * second.denominator;
-      int denominator = second.numerator * this.denominator;
-      return new Fraction(numerator, denominator);
-    }
+    int numerator = this.numerator * second.denominator;
+    int denominator = second.numerator * this.denominator;
+    return new Fraction(numerator, denominator);
+    //need GCD
   }
 
   /**
