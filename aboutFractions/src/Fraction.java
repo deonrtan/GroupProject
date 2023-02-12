@@ -45,7 +45,7 @@ public class Fraction {
 
   /**
    * Adds the first fraction with the second fraction
-   * @param second the two functions will be added
+   * @param second adding of the second fraction
    */
   Fraction add(Fraction second) {
     //Check if there's an error in the method
@@ -53,6 +53,7 @@ public class Fraction {
     if (this.denominator == second.denominator) {
       int numerator = this.numerator + second.numerator;
       int denominator = this.denominator;
+
       return new Fraction(numerator, denominator);
     } else {
       int numerator =
@@ -67,7 +68,7 @@ public class Fraction {
 
   /**
    * subtracts the first fraction with the second fraction
-   * @param second the two functions will be added
+   * @param second subtracting of the second fraction
    */
   Fraction subtract(Fraction second) {
     //Check if there's an error in the method
@@ -89,15 +90,11 @@ public class Fraction {
 
   /**
    * multiply the first fraction with the second fraction
-   * @param second the two functions will be multiplied
+   * @param second multiplying of the second fraction
    */
   Fraction multiplication(Fraction second) {
     //Check if there's an error in the method
-    if (this.denominator == second.denominator) {
-      int numerator = this.numerator - second.numerator;
-      int denominator = this.denominator;
-      return new Fraction(numerator, denominator);
-    } else {
+    {
       int numerator = this.numerator * second.numerator;
       int denominator = this.denominator * second.denominator;
       return new Fraction(numerator, denominator);
@@ -106,7 +103,7 @@ public class Fraction {
 
   /**
    * divides the first fraction with the second fraction
-   * @param second the two functions will be divided
+   * @param second dividing of the second Fraction
    */
   Fraction division(Fraction second) {
     //checks if the first denominator matches with the second denominator then outputs the same denominator
@@ -121,21 +118,43 @@ public class Fraction {
     }
   }
 
-
+  /**
+   * turns the value into a string
+   * @return String returns the string value of the total
+   */
   public String toString() {
-    // Returns a string value
     return this.numerator + "/" + this.denominator;
   }
-  
-      public int gcd(int numerator, int denominator) {
-        if (numerator == 0)
-            return denominator;
-        return gcd(denominator % numerator, numerator);
+
+  Fraction reduceFraction() {
+    int numerator = this.numerator;
+    int denominator = this.denominator;
+    gcd(numerator, denominator);
+    return new Fraction(numerator, denominator);
+  }
+
+  public int gcd(int n1, int n2) {
+    if (n2 == 0) {
+      return n1;
     }
+    return gcd(n2, n1 % n2);
+  }
 
   public double toDouble() {
     //still need to fix these part
     double wholeNumValue = this.numerator / this.denominator;
     return wholeNumValue;
+  }
+
+  Fraction reduceFraction(Fraction fractionOne, Fraction fractionTwo) {
+    int gcdOne = fractionOne.gcd(
+      fractionOne.getNumerator(),
+      fractionOne.getDenominator()
+    );
+    int gcdTwo = fractionTwo.gcd(
+      fractionTwo.getNumerator(),
+      fractionTwo.getDenominator()
+    );
+    return new Fraction(gcdOne, gcdTwo);
   }
 }

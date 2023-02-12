@@ -84,6 +84,7 @@ public class FractionArithmetic {
           System.out.printf("\n%85s%s", "Fraction 2: ", fractionTwo.toString());
           System.out.printf("\n%96s", "The result is " + result.toString());
           System.out.printf("%96s", "Press enter to continue...");
+          System.out.println();
           kbd.nextLine();
         }
         //------------Reduce a Fraction------------\\
