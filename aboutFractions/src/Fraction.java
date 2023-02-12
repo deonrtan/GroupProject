@@ -6,8 +6,8 @@ public class Fraction {
 
   //method for the default values of Fraction
   public Fraction() {
-    numerator = 0;
-    denominator = 0;
+    numerator = 1;
+    denominator = 2;
   }
 
   public Fraction(int wholeNumVal) {
@@ -22,135 +22,132 @@ public class Fraction {
   }
 
   public int getNumerator() {
-    return numerator;
-    //returns the numerator
+    return numerator; //returns the numerator
   }
 
   public int getDenominator() {
-    return denominator;
-    //returns the denominator
+    return denominator; //returns the denominator
   }
 
   public void setNumerator(int numerator) {
-    this.numerator = numerator;
-    //sets the numerator
+    this.numerator = numerator; //sets the numerator
   }
 
   public void setDenominator(int denominator) {
-    this.denominator = denominator;
-    //sets the denominator
+    this.denominator = denominator; //sets the denominator
   }
 
   //------------------Basic Operations------------------\\
 
   /**
    * Adds the first fraction with the second fraction
-   * @param second adding of the second fraction
+   * @param second the two functions will be added
    */
-  Fraction add(Fraction second) {
+  public Fraction add(Fraction second) {
     //Check if there's an error in the method
-
+    int numerator, denominator;
     if (this.denominator == second.denominator) {
-      int numerator = this.numerator + second.numerator;
-      int denominator = this.denominator;
-
-      return new Fraction(numerator, denominator);
+      numerator = this.numerator + second.numerator;
+      denominator = this.denominator;
     } else {
-      int numerator =
+      numerator =
         this.numerator *
         second.denominator +
         second.numerator *
         this.denominator;
-      int denominator = this.denominator * second.denominator;
-      return new Fraction(numerator, denominator);
+      denominator = this.denominator * second.denominator;
     }
+    return reduceFraction(numerator, denominator);
   }
 
   /**
    * subtracts the first fraction with the second fraction
-   * @param second subtracting of the second fraction
+   * @param second the two functions will be added
    */
-  Fraction subtract(Fraction second) {
+  public Fraction subtract(Fraction second) {
     //Check if there's an error in the method
-
+    int numerator, denominator;
     if (this.denominator == second.denominator) {
-      int numerator = this.numerator - second.numerator;
-      int denominator = this.denominator;
-      return new Fraction(numerator, denominator);
+      numerator = this.numerator - second.numerator;
+      denominator = this.denominator;
     } else {
-      int numerator =
+      numerator =
         this.numerator *
         second.denominator -
         second.numerator *
         this.denominator;
-      int denominator = this.denominator * second.denominator;
-      return new Fraction(numerator, denominator);
+      denominator = this.denominator * second.denominator;
     }
+    return reduceFraction(numerator, denominator);
   }
 
   /**
    * multiply the first fraction with the second fraction
-   * @param second multiplying of the second fraction
+   * @param second the two functions will be multiplied
    */
-  Fraction multiplication(Fraction second) {
+  public Fraction multiplication(Fraction second) {
     //Check if there's an error in the method
-    {
-      int numerator = this.numerator * second.numerator;
-      int denominator = this.denominator * second.denominator;
-      return new Fraction(numerator, denominator);
-      //need GCD
-    }
+    int numerator, denominator;
+    numerator = this.numerator * second.numerator;
+    denominator = this.denominator * second.denominator;
+    return reduceFraction(numerator, denominator);
   }
 
   /**
    * divides the first fraction with the second fraction
-   * @param second dividing of the second Fraction
+   * @param second the two functions will be divided
    */
-  Fraction division(Fraction second) {
+  public Fraction division(Fraction second) {
     //checks if the first denominator matches with the second denominator then outputs the same denominator
-    int numerator = this.numerator * second.denominator;
-    int denominator = second.numerator * this.denominator;
-    return new Fraction(numerator, denominator);
-    //need GCD
+    int numerator, denominator;
+    numerator = this.numerator * second.denominator;
+    denominator = second.numerator * this.denominator;
+    return reduceFraction(numerator, denominator);
   }
 
   /**
-   * turns the value into a string
-   * @return String returns the string value of the total
+   * reduces the fraction into its simplest form
+   * @param one is the numerator
+   * @param two is the denominator
+   * @return the simplified form of the fraction
+   */
+  public Fraction reduce(int one, int two) {
+    return reduceFraction(one, two);
+  }
+
+  /**
+   * @return the fraction in the conventional way as a string value
    */
   public String toString() {
-    return this.numerator + "/" + this.denominator;
+    return this.numerator + "/" + this.denominator; // Returns a string value
   }
 
-  Fraction reduceFraction() {
-    int numerator = this.numerator;
-    int denominator = this.denominator;
-    gcd(numerator, denominator);
-    return new Fraction(numerator, denominator);
-  }
-
-  public int gcd(int n1, int n2) {
-    if (n2 == 0) {
-      return n1;
-    }
-    return gcd(n2, n1 % n2);
+  /**
+   * @param numerator of the fraction
+   * @param denominator of the fration
+   * @return Finds the GCD of two numbers
+   */
+  private int computeGCD(int numerator, int denominator) {
+    if (numerator == 0) return denominator;
+    return computeGCD(denominator % numerator, numerator);
   }
 
   public double toDouble() {
     //still need to fix these part
-    double wholeNumValue = this.numerator / this.denominator;
-    return wholeNumValue;
+    return this.numerator / this.denominator;
   }
 
-  Fraction reduceFraction(Fraction fractionOne, Fraction fractionTwo) {
-    int gcdOne = fractionOne.gcd(
-      fractionOne.getNumerator(),
-      fractionOne.getDenominator()
-    );
-    int gcdTwo = fractionTwo.gcd(
-      fractionTwo.getNumerator(),
-      fractionTwo.getDenominator()
-    );
-    return new Fraction(gcdOne, gcdTwo);
+  /**
+   * reduces the fraction into simplified form
+   * cannot be use in other classes
+   * @param numerator of the fraction
+   * @param denominator of the fraction
+   * @return the simplified form of the fraction
+   */
+  private Fraction reduceFraction(int numerator, int denominator) {
+    int gcd = computeGCD(numerator, denominator);
+    numerator /= gcd;
+    denominator /= gcd;
+    return new Fraction(numerator, denominator);
   }
 }
